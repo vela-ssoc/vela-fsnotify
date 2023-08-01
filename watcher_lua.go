@@ -2,7 +2,7 @@ package fsnotify
 
 import (
 	cond "github.com/vela-ssoc/vela-cond"
-	"github.com/vela-ssoc/vela-kit/execpt"
+	"github.com/vela-ssoc/vela-kit/exception"
 	"github.com/vela-ssoc/vela-kit/lua"
 	"github.com/vela-ssoc/vela-kit/pipe"
 )
@@ -12,7 +12,7 @@ func (w *watch) addL(L *lua.LState) int {
 	if n == 0 {
 		return 0
 	}
-	ctc := execpt.New()
+	ctc := exception.New()
 	for i := 1; i <= n; i++ {
 		if filename := L.IsString(i); filename != "" {
 			w.append(filename)

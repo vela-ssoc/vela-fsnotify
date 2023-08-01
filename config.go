@@ -11,8 +11,8 @@ type config struct {
 	name  string
 	path  []string
 	match *cond.Cond
-	pipe  *pipe.Px
-	onErr *pipe.Px
+	pipe  *pipe.Chains
+	onErr *pipe.Chains
 	co    *lua.LState
 }
 

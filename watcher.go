@@ -4,7 +4,7 @@ import (
 	"context"
 	"github.com/fsnotify/fsnotify"
 	cond "github.com/vela-ssoc/vela-cond"
-	"github.com/vela-ssoc/vela-kit/execpt"
+	"github.com/vela-ssoc/vela-kit/exception"
 	"github.com/vela-ssoc/vela-kit/lua"
 	"time"
 )
@@ -95,7 +95,7 @@ func (w *watch) Start() error {
 		return nil
 	}
 
-	me := execpt.New()
+	me := exception.New()
 	for _, item := range w.cfg.path {
 		me.Try(item, w.fw.Add(item))
 	}
